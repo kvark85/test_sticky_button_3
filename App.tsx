@@ -1,5 +1,13 @@
 import React from 'react';
-import {StyleSheet, View, Button, TextInput, Keyboard} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Button,
+  TextInput,
+  Keyboard,
+  TouchableOpacity,
+  Text,
+} from 'react-native';
 import {
   KeyboardProvider,
   KeyboardStickyView,
@@ -29,9 +37,9 @@ function TestComponent(): React.JSX.Element {
         <Button title={'Hide keyboard'} onPress={Keyboard.dismiss} />
       </View>
       <KeyboardStickyView offset={{closed: -1 * bottom, opened: 0}}>
-        <View style={{marginHorizontal: 15}}>
-          <Button title={'Sticky button'} onPress={() => {}} />
-        </View>
+        <TouchableOpacity style={styles.button} onPress={() => {}}>
+          <Text style={styles.buttonText}>Sticky button</Text>
+        </TouchableOpacity>
       </KeyboardStickyView>
     </>
   );
@@ -42,7 +50,7 @@ const styles = StyleSheet.create({
     paddingVertical: 50,
     flex: 1,
     borderColor: 'red',
-    borderWidth: 1,
+    borderWidth: 3,
   },
   input: {
     borderColor: 'black',
@@ -51,6 +59,15 @@ const styles = StyleSheet.create({
   },
   buttonStyle: {
     backgroundColor: 'yellow',
+  },
+  button: {
+    marginHorizontal: 15,
+    backgroundColor: 'blue',
+    padding: 10,
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: 'white',
   },
 });
 
