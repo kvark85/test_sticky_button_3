@@ -29,12 +29,14 @@ function App(): React.JSX.Element {
 
 function TestComponent(): React.JSX.Element {
   const {bottom} = useSafeAreaInsets();
+  const isNewArch = global.__turboModuleProxy != null;
 
-  return (
+return (
     <>
       <View style={styles.root}>
         <TextInput style={styles.input} value={'1'} onChange={() => {}} />
         <Button title={'Hide keyboard'} onPress={Keyboard.dismiss} />
+        <Text>isNewArch {isNewArch ? 'true' : 'false'}</Text>
       </View>
       <KeyboardStickyView offset={{closed: -1 * bottom, opened: 0}}>
         <TouchableOpacity style={styles.button} onPress={() => {}}>
@@ -49,8 +51,6 @@ const styles = StyleSheet.create({
   root: {
     paddingVertical: 50,
     flex: 1,
-    borderColor: 'red',
-    borderWidth: 3,
   },
   input: {
     borderColor: 'black',

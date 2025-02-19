@@ -11,7 +11,8 @@ prepare_react_native_project!
 linkage = ENV['USE_FRAMEWORKS']
 if linkage != nil
   Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
-  use_frameworks! :linkage => linkage.to_sym
+  use_frameworks! :linkage => :static
+  use_frameworks! :linkage => :static, :hermes_enabled => false, :fabric_enabled => false
 end
 
 target 'test_sticky_button_3' do
